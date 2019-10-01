@@ -98,6 +98,14 @@ In our study, in order to determine the optimum value of k we ran multiple itera
 
 Another parameter that is used to improve the performance is the Cost Matrix. It is a square matrix where cost(i,j) is the cost of classifying a point into class j if its true class is i (i.e., the rows correspond to the true class and the columns correspond to the predicted class of a confusion matrix). Naturally all diagonal elements of the cost matrix are zero since there no cost for correct classification. In our study, we developed the cost matrix by trial and error method. In the next section we compare the effect of the various pre-processing techniques discussed in section II on the performance of the classifier with and without the cost matrix.
 
+$$
+\mathrm{cost}(i, j) = \begin{bmatrix}
+	0 & 9.5 & 2 & 6 \\
+	2 & 0 & 3.5 & 4 \\
+	1.25 & 5 & 0 & 1.5 \\
+	2.25 & 3 & 1.5 & 0
+\end{bmatrix}
+$$
 
 \section{Results}
 
