@@ -1,2 +1,2 @@
 # shark-paper
-Shark Paper
+Git source for the IGESSC shark paper
