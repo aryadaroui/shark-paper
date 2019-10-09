@@ -16,38 +16,32 @@
 \author{\IEEEauthorblockN{Sainesh Karan}
 \IEEEauthorblockA{\textit{Dept. of Electrical Engineering} \\
 \textit{California State University, Long Beach}\\
-Long Beach, USA \\
-email address}
+Long Beach, USA}
 \and
 \IEEEauthorblockN{Emily Messe}
-\IEEEauthorblockA{\textit{Dept. of Biological Sciences} \\
+\IEEEauthorblockA{\textit{Dept. of Biological Sciences} \\`'
 \textit{California State University, Long Beach}\\
-Long Beach, USA \\
-email address}
+Long Beach, USA}
 \and
 \IEEEauthorblockN{Dr. Yu Yang}
 \IEEEauthorblockA{\textit{Dept. of Chemical Engineering} \\
 \textit{California State University, Long Beach}\\
-Long Beach, USA \\
-email address}
+Long Beach, USA}
 \and
 \IEEEauthorblockN{Dr. Hen Guel Yeh}
 \IEEEauthorblockA{\textit{Dept. of Electrical Engineering} \\
 \textit{California State University, Long Beach}\\
-Long Beach, USA \\
-email address}
+Long Beach, USA}
 \and
 \IEEEauthorblockN{Dr. Chris Lowe}
 \IEEEauthorblockA{\textit{Dept. of Biological Sciences} \\
 \textit{California State University, Long Beach}\\
-Long Beach, USA \\
-email address}
+Long Beach, USA}
 \and
 \IEEEauthorblockN{Dr. Wenlu Zhang}
 \IEEEauthorblockA{\textit{Dept. of Computer Science} \\
 \textit{California State University, Long Beach}\\
-Long Beach, USA \\
-email address}
+Long Beach, USA}
 }
 
 \maketitle
@@ -64,20 +58,62 @@ Activity Recognition, Shark Behavior, KNN, Digital Signal Processing, Machine Le
 Activity recognition pertains to the task of classifying physical activities undertaken by an individual from the collected data. Differentiating behaviors of free-ranging animals provides an insight into their feeding patterns that help us understand their ecology and their impact on the environment. Recently, accelerometers have been employed to unveil the abstruse lives of marine animals.   It is extremely arduous to observe such species in their natural environments over long periods due to poor visibility, deeper depths, and adverse environmental conditions \cite{1}. Over the years Bio-telemetry devices have become popular amongst researchers to overcome these obstacles and are widely available. An Acceleration Data Logger (ADL) is one such device that measures acceleration caused by body movements that can be used to determine body orientation and kinematics for behavioral classification \cite{1}. ADLs allow data to be recorded and stored at high frequencies, and thus providing high-resolution data with useful information to reveal animal’s behavior. However, the increased   volume of high-resolution data is non-trivial to process, and the useful information hidden behind may not be easy to extract. This challenge motivates the research of automatic behavioral classification by using machine learning techniques. 
 The past few years have seen tremendous development in the fields of machine learning and artificial intelligence, which has spurred a widespread adoption of the technology for several applications. Machine learning algorithms can be broadly categorized into supervised and unsupervised methods. In supervised methods, a training data-set, which consists of the data and the associated outcome/labels, is used to train a model to accurately map the input variables to the outcome/labels. Once the model has been built based on the training data, it can be used to make predictions on new input data. Examples of such algorithms include Decision Trees, Random Forest (RF), K-Nearest Neighbors (KNN) and Neural Networks \cite{1}. 
 Several studies have been conducted in the past to study the behavior of free-ranging animals using data loggers and machine learning techniques. In  \cite{2} and  \cite{3}, the authors demonstrate the utility of using data loggers and machine learning algorithms to classify the behavior of Griffon vultures and Cheetahs respectively. In  \cite{4} authors used machine learning techniques to identify the hunting and feeding pattern of penguins. Apart from behavior classification, authors of  \cite{5} and  \cite{6} have used data loggers to determine the mortality and energy expenditure of sharks respectively.
-In this paper, we apply the KNN algorithm to classify data collected from the ADL into four behavior classes namely Resting, Swimming, Feeding, and Non-directed motion. KNN is a simple machine learning algorithm in which, a new data point is classified based on the majority of its k - nearest neighbors, k being the user-defined parameter. The algorithm does not use any model to fit the new data sample but rather computes the distance of the data point form its neighbors  \cite{7}. We also explore the effect of signal transformation techniques such as Discrete Fourier Transform (DFT) and Discrete Cosine Transform (DCT) on the performance of the classification algorithm. We expect that the transformation techniques will enhance the differentiating features of each behavior class thereby aiding the algorithm in the process while reducing the computation complexity and time. All data pre-processing, simulations and machine learning techniques used in this paper were implemented in Matlab R2018b® using the Statistics and Machine Learning Tool Box Ver.11.4.
+In this paper, we apply the KNN algorithm to classify data collected from the ADL into four behavior classes namely Resting, Swimming, Feeding, and Non-directed motion. KNN is a simple machine learning algorithm in which, a new data point is classified based on the majority of its $k$ - nearest neighbors, $k$ being the user-defined parameter. The algorithm does not use any model to fit the new data sample but rather computes the distance of the data point form its neighbors  \cite{7}. We also explore the effect of signal transformation techniques such as Discrete Fourier Transform (DFT) and Discrete Cosine Transform (DCT) on the performance of the classification algorithm. We expect that the transformation techniques will enhance the differentiating features of each behavior class thereby aiding the algorithm in the process while reducing the computation complexity and time. All data pre-processing, simulations and machine learning techniques used in this paper were implemented in Matlab R2018b® using the Statistics and Machine Learning Tool Box Ver.11.4.
 
 \section{Data Aquisition and Pre-Processing}
 Laboratory trials were conducted to quantify acceleration signatures of California horn sharks (Heterodontus francisci) for different behaviors including resting, swimming, and feeding (prey capture and handling). Horn sharks were chosen as a model species to represent a demersal, resting shark that are capable of eating hard-shelled invertebrates \cite{8, 9, 10}. Sharks were collected from Santa Catalina Island, and transported back to the CSULB Shark Lab. Trials occurred with a single shark in a 340 l tank with two GoPro video cameras, one mounted on the bottom of the tank, and one above the tank. For each trial, a shark was fitted with an accelerometer data logger (ADL; Cefas G6a+ or Technosmart AxyDepth) via a custom tag package. Accelerometers recorded 3D acceleration data at 25 Hz. All acceleration data were processed in IgorPro (vers. 6.2, WaveMetrics) using Ethographer \cite{11}. Static acceleration represents the 3D body position and orientation due to gravity (i.e., pitch, X static; roll, Y static; yaw, Z static), whereas dynamic acceleration represents the 3D body movements (i.e., surge, X dynamic; heave, Y dynamic; sway, Z dynamic) as shown in Figure 1. Static acceleration was separated from dynamic acceleration using a 2 s box smoother \cite{12}. Overall dynamic body acceleration (ODBA) was calculated by summing the absolute value of the dynamic axes and is used as a proxy for energetic expenditure and oxygen consumption \cite{13}. Sharks were tagged approximately 6 hrs before the start of the trial to allow the shark to acclimate. To characterize motion patterns associated with prey manipulation and handling, instrumented sharks were then fed three different prey types including a live purple urchin (< 4 cm test diameter), a frozen and thawed squid (whole, with pen), and a frozen and thawed shrimp. Prey was buried or placed away from the shark in order to characterize natural feeding behaviors expected in the field. A trial concluded when the shark had consumed all trial prey. Trials were approximately 2 hrs long, and a total of 7 trials were done on 4 different individuals. 
 
-%% accel.jpg
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=3.49in]{accel.pdf}
+	\caption{Breakdown of acceleration data recorded at 25 Hz. Static acceleration represents the body position and orientation of the shark due to gravity. Dynamic acceleration represents the body movements of the shark.}
+	\label{accel}
+\end{figure}
 
 TThe data generated by the ADL was labelled manually by viewing the GoPro video recording of each trial and identifying the shark behaviour with the corresponding time-stamps. All data samples that were unlabelled were removed from the dataset. An example of the recorded data from dataset number 7 is shown in Fig.2 and Fig.3.
 
 %% static, dynamic JPGs
 
 \subsection{Data Pre-processing}
-A total of 7 datasets were formed from the trials. Each dataset was then separated into its four constituent behaviour classes based on the labels. The distribution of different classes in each dataset is presented in table 1. Since the datasets had very few feeding samples in comparison to other classes, carefull consideration had to be given to how to split the data between training and testing. We chose dataset number 5 as testing data to test our model. This was done was to maximise the number of feeding samples in the training data while still having enough feeding samples to test the model. Also the dataset number 5 came from a different individual shark as compared to other datasets and would allow us to test capability of the model to generalise. \\
-\\
+A total of 7 datasets were formed from the trials. Each dataset was then separated into its four constituent behaviour classes based on the labels. The distribution of different classes in each dataset is presented in table 1. Since the datasets had very few feeding samples in comparison to other classes, carefull consideration had to be given to how to split the data between training and testing. We chose dataset number 5 as testing data to test our model. This was done was to maximise the number of feeding samples in the training data while still having enough feeding samples to test the model. Also the dataset number 5 came from a different individual shark as compared to other datasets and would allow us to test capability of the model to generalise.
+
+\begin{table*}[tp!]
+	\centering
+	\caption{Distribution of different behavior classes in the datasets}
+	\begin{tabular}{l c c c c c c c c}
+	\hline
+	& 1 & 2 & 3 & 4 & 5 & 6 & 7 & Total \\
+	\hline
+	Resting & 157,750 & 565,580 & 379,850 & 10,250 & 6,150 & 27,975 & 77,374 & 1,224,929 \\
+	Swimming & 6,200 & 209,550 & 5,100 & 81,525 & 7,975 & 19,750 & 61,475 & 391575 \\
+	Feeding & 5,700 & 350 & 200 & 1,375 & 875 & 2,900 & 2,100 & 13,500 \\
+	NDM & 51,950 & 7,400 & 15,700 & 1,750 & 1,775 & 27,025 & 5,400 & 11,1000 \\
+	Total & 22,1600 & 782,880 & 40,0850 & 94,900 & 16,775 & 77,650 & 146,349 &  \\
+	\hline
+	\end{tabular}
+	\label{}
+\end{table*}
+
+\begin{table*}[tp!]
+	\centering
+	\caption{Class distribution of chosen subsets used for training}
+	\begin{tabular}{l c c c c c c c}
+	\hline
+	& Dataset 1 & Dataset 2 & Dataset 3 & Dataset 5 & Dataset 6 & Dataset 7 & Total \\
+	\hline
+	Resting & 20,000 & 20,000 & 20,000 & 10,000 & 15,000 & 15,000 & 100,000 \\
+	Swimming & 6,000 & 20,000 & 5,000 & 20,000 & 19,000 & 20,000 & 90,000 \\
+	Feeding & 5,700 & 350 & 200 & 1,375 & 2,900 & 2,100 & 12,625 \\
+	NDM & 30,000 & 7,000 & 15,000 & 1,500 & 25,000 & 5,400 & 83,900 \\
+	Total & 61,700 & 47,350 & 40,200 & 32,875 & 62,900 & 42,500 \\
+	\hline
+	\end{tabular}
+	\label{}
+\end{table*}
+
+
+
+
 Next we combined all the datasets and subtracted the mean from all the data samples in the combined dataset so as to remove the DC-bias and noise, smoothing the overall dataset and centring the signal around zero \cite{14}. We then normalized the all the datasets so as to standardize their mean and standard deviation to 0 and 1 respectively. 
 As can be seen from Table 1, the trials were of varying lengths with varying distribution of classes. It can particularly be observed that the datasets are biased with the total feeding data samples being an order of magnitude lower than other classes. In order to overcome this bias, a subset of data samples was chosen from each of the remaining classes by examining the signals and choosing a subset that was most consistent and free of noise. A total of 100,000 samples was chosen for Resting behaviour with almost equal samples taken from each dataset. Similarly, 90,000 samples were chosen for swimming behaviour and 83,900 samples were chosen for non-directed motion. The distribution of the chosen subsets is presented in Table 2.
 
@@ -87,14 +123,32 @@ In order to aid the algorithm to differentiate between different classes from th
 We compute the frequency analysis for the time signal of a specific length or window using the discrete Fourier transform with the Fast Fourier Transform (FFT) algorithm. In this case we use a window of 25 data samples or 1 second so as to match the sampling frequency of the ADL and to avoid the transitioning of behaviour classes within the window. In order to counter the bias in the training dataset against feeding data. We oversampled the feeding data by sliding the window with a 50 overlap \cite{16} so as increase the number of feeding samples in the training dataset. Due to the symmetric property of Fourier Transform, we use only the 50\% of the data in the frequency domain. Similarly, we use only 50\% of the data of the DCT and discard the data in the higher frequency bins. However, it should be noted that the data reduction take place in when we use the transform domain data by itself. In the event where we combine the time and frequency domain data, the complete FFT and DCT are used so as to keep the input matrix to the model consistent. In such cases, no data reduction takes place. The total data samples in the transform domain are shown in table 3.
 
 %% Table 3??
+% \begin{table}[h] % need to wrap
+% 	\centering
+% 	\caption{Total data samples in the transform domain used for training the model.}
+% 	\begin{tabular}{l c c c}
+% 	\hline
+% 	Behavior class & Data samples in time domain & Data samples in transform domain & Data reduction representation \\
+% 	\hline
+% 	Resting & 100,000 & 48,000 & 2.083 \\
+% 	Swimming & 90,000 & 43,200 & 2.083 \\
+% 	Feeding & 12,625 & 6,060 & 2.083 \\
+% 	NDM & 83,900 & 40,270 & 2.083 \\
+% 	\hline
+% 	\end{tabular}
+% 	\label{}
+% \end{table}
 
 Thus by considering only the half of the Fourier transform i.e. ignoring the mirror image and the high frequency components of the DCT, we can reduce the total size of the data to be classified by half.
 
 \subsection{K-NN Classifier}
 
-K-Nearest Neighbor is a supervised learning algorithm where the result of new input query is classified as the same class as its k-nearest neighbors. Simplicity and low computational complexity are its main advantages which is why it has been widely used in several studies \cite{17}\cite{18}[19]. The goal of this algorithm is to classify a new input based on attributes of the training samples. The training examples are vectors in a multidimensional feature space, each with a class label \cite{18}. The training phase of the algorithm consists only of storing the data and class labels. There are different metrics to determine the distance between the input query and training samples. Euclidean, City Block, Chebychev are some of the common and popular distance metrics. The accuracy of the K-NN algorithm can be severely impacted by the presence of noisy input data. The values of k completely depend upon the nature of the data. A higher value of k reduces the effect of noise but reduces the distinction between the boundaries of the classes \cite{18}. In cases where the total number of classes are even, k is selected to be odd to prevent ties during classification. 
+K-Nearest Neighbor is a supervised learning algorithm where the result of new input query is classified as the same class as its k-nearest neighbors. Simplicity and low computational complexity are its main advantages which is why it has been widely used in several studies \cite{17}\cite{18}[19]. The goal of this algorithm is to classify a new input based on attributes of the training samples. The training examples are vectors in a multidimensional feature space, each with a class label \cite{18}. The training phase of the algorithm consists only of storing the data and class labels. There are different metrics to determine the distance between the input query and training samples. Euclidean, City Block, Chebychev are some of the common and popular distance metrics. The accuracy of the K-NN algorithm can be severely impacted by the presence of noisy input data. The values of $k$ completely depend upon the nature of the data. A higher value of $k$ reduces the effect of noise but reduces the distinction between the boundaries of the classes \cite{18}. In cases where the total number of classes are even, $k$ is selected to be odd to prevent ties during classification. 
+\begin{equation}
+	y = \mathrm{arg} \mathrm{min}_{y = 1 \ldots K} \sum^K_{j=1} P(i|x)C(i|j)\qquad P(i|x) = \frac{k_i}{k}
+\end{equation}
 
-In our study, in order to determine the optimum value of k we ran multiple iterations of the program with different distance metrics and values of k. It was observed that as we increased the value of k the accuracy of Resting and Swimming behaviors also increased but that of feeding and non-directed motion decreased. This may be since swimming and Resting classes have the most training samples and as the value of k is increased, the locality of the input query is destroyed and the algorithm starts to look at samples that are not neighbors.  We were able to get the best accuracy of feeding and non-directed motion at k = 15 with the city block distance metric without sacrificing the accuracy of resting and swimming classes too much.
+In our study, in order to determine the optimum value of $k$ we ran multiple iterations of the program with different distance metrics and values of $k$. It was observed that as we increased the value of $k$ the accuracy of Resting and Swimming behaviors also increased but that of feeding and non-directed motion decreased. This may be since swimming and Resting classes have the most training samples and as the value of $k$ is increased, the locality of the input query is destroyed and the algorithm starts to look at samples that are not neighbors.  We were able to get the best accuracy of feeding and non-directed motion at $k = 15$ with the city block distance metric without sacrificing the accuracy of resting and swimming classes too much.
 
 Another parameter that is used to improve the performance is the Cost Matrix. It is a square matrix where cost(i,j) is the cost of classifying a point into class j if its true class is i (i.e., the rows correspond to the true class and the columns correspond to the predicted class of a confusion matrix). Naturally all diagonal elements of the cost matrix are zero since there no cost for correct classification. In our study, we developed the cost matrix by trial and error method. In the next section we compare the effect of the various pre-processing techniques discussed in section II on the performance of the classifier with and without the cost matrix.
 
@@ -113,6 +167,8 @@ The results for the experiment without using the cost matrix are shown in Table 
 
 %% Table 4
 
+
+
 Overall, this approach exhibits a wide range of accuracy results. Starting with only Time domain data it is observed that the technique surprisingly had the best accuracy for feeding behavior even though its overall accuracy was the lowest. The overall accuracy increases when the transform domain data is used for classification. It increases from 59.05\% to 66.89\% when using only FFT and to 67.39\% after combining FFT and DCT. It however reduces back to 59.95\% when time domain data is combined with transform domain. It can also be observed that DCT helps to increase feeding accuracy. The feeding accuracy jumps from 1.4\% to 2.9\% when FFT is combined with DCT. Similarly, the feeding accuracy jumps from 6.6\% to 8.1\% when time domain data is combined with DCT. The reason why DCT aids the improvement in feeding accuracy needs to be further investigated. For most cases the accuracy for Resting behavior remained around 50-55\% only increasing up to 81\% when using a combination of FFT and DCT. The swimming accuracy remained consistent in most cases only dropping to 63\% when using only DCT data. This was rather surprising as the maximum training data samples belonged to this class. It was difficult to come to a conclusion on how the accuracy of the NDM behavior was impacted. It can however be observed that NDM accuracy is higher in cases where time domain data is used as opposed to transform domain data. On the whole the performance of the classier was rather dismal as it struggled to classify feeding data accurately. This challenge was overcome by using a cost matrix to improve the feeding accuracy. The results for the classifier with the cost matrix are shown in table 5.
 
 %% Table 5
@@ -123,45 +179,6 @@ From table 5, It can be seen that while the overall accuracy is lower slightly l
 In this paper we applied the K-NN algorithm to classify shark behavior based on acceleration data collected by an ADL. We used various frequency transformation techniques such as the FFT and DCT to study their impact on the performance of the algorithm. We also compare the effect of different combination of data in time and frequency domain on the algorithm’s performance. We can conclude that the transforming raw data into frequency domain significantly improves the performance of the algorithm and that DCT was instrumental in improving the accuracy of Feeding Behavior. Although the reason for DCT improving the Feeding accuracy needs to be further investigated. We also successfully show that the signal transformation techniques can be used to reduce the overall data required for training the algorithm which results in a reduction in computational cost, memory requirement and computational time. However, there are several drawbacks in this study. A more robust methodology is needed to optimize the parameters of the algorithm instead of the trial and error method used in this study. Tuning the cost matrix is a rather challenging task and becomes even more difficult as the number of classes increase. Thus, a method to obtain the optimum cost matrix needs to be researched.
 
 Future work may include a comparison between various other machine learning algorithms such as Support Vector Machines (SVM), Neural Networks and Decision Trees. Also feature extraction can be used to extract statistical features from the raw as well as frequency domain data to help the algorithm differentiate between the classes. The selection of features and the optimum number required could be the topic of further research. In addition to this future work may also include the use of wavelet analysis to derive time-frequency features from the data. Finally end goal of this research would be to use the models developed to study the data collected from sharks in the field so as to unravel their feeding patterns of California Horn sharks and derive an insight into their ecology.
-
-\section*{Acknowledgment}
-
-The preferred spelling of the word ``acknowledgment'' in America is without 
-an ``e'' after the ``g''. Avoid the stilted expression ``one of us (R. B. 
-G.) thanks $\ldots$''. Instead, try ``R. B. G. thanks$\ldots$''. Put sponsor 
-acknowledgments in the unnumbered footnote on the first page.
-
-% \section*{References}
-
-% Please number citations consecutively within brackets \cite{b1}. The 
-% sentence punctuation follows the bracket \cite{b2}. Refer simply to the reference 
-% number, as in \cite{b3}---do not use ``Ref. \cite{b3}'' or ``reference \cite{b3}'' except at 
-% the beginning of a sentence: ``Reference \cite{b3} was the first $\ldots$''
-
-% Number footnotes separately in superscripts. Place the actual footnote at 
-% the bottom of the column in which it was cited. Do not put footnotes in the 
-% abstract or reference list. Use letters for table footnotes.
-
-% Unless there are six authors or more give all authors' names; do not use 
-% ``et al.''. Papers that have not been published, even if they have been 
-% submitted for publication, should be cited as ``unpublished'' \cite{b4}. Papers 
-% that have been accepted for publication should be cited as ``in press'' \cite{b5}. 
-% Capitalize only the first word in a paper title, except for proper nouns and 
-% element symbols.
-
-% For papers published in translation journals, please give the English 
-% citation first, followed by the original foreign-language citation \cite{b6}.
-
-% \begin{thebibliography}{00}
-% \bibitem{b1} G. Eason, B. Noble, and I. N. Sneddon, ``On certain integrals of Lipschitz-Hankel type involving products of Bessel functions,'' Phil. Trans. Roy. Soc. London, vol. A247, pp. 529--551, April 1955.
-% \bibitem{b2} J. Clerk Maxwell, A Treatise on Electricity and Magnetism, 3rd ed., vol. 2. Oxford: Clarendon, 1892, pp.68--73.
-% \bibitem{b3} I. S. Jacobs and C. P. Bean, ``Fine particles, thin films and exchange anisotropy,'' in Magnetism, vol. III, G. T. Rado and H. Suhl, Eds. New York: Academic, 1963, pp. 271--350.
-% \bibitem{b4} K. Elissa, ``Title of paper if known,'' unpublished.
-% \bibitem{b5} R. Nicole, ``Title of paper with only first word capitalized,'' J. Name Stand. Abbrev., in press.
-% \bibitem{b6} Y. Yorozu, M. Hirano, K. Oka, and Y. Tagawa, ``Electron spectroscopy studies on magneto-optical media and plastic substrate interface,'' IEEE Transl. J. Magn. Japan, vol. 2, pp. 740--741, August 1987 [Digests 9th Annual Conf. Magnetics Japan, p. 301, 1982].
-% \bibitem{b7} M. Young, The Technical Writer's Handbook. Mill Valley, CA: University Science, 1989.
-
-% \end{thebibliography}
 
 \bibliographystyle{ieeetran}
 \bibliography{bib}
