@@ -11,52 +11,61 @@
 \usepackage{array}
 
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
-    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+	T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+	
 \begin{document}
 
 \title{Classification of Shark Behavior from Accelerometry Data  using Machine Learning}
 
 \author{\IEEEauthorblockN{Sainesh Karan}
-\IEEEauthorblockA{\textit{Dept. of Electrical Engineering} \\
-\textit{California State University, Long Beach}\\
-Long Beach, USA}
-\and
-\IEEEauthorblockN{Emily Messe}
-\IEEEauthorblockA{\textit{Dept. of Biological Sciences} \\
-\textit{California State University, Long Beach}\\
-Long Beach, USA}
-\and
-\IEEEauthorblockN{Dr. Yu Yang}
-\IEEEauthorblockA{\textit{Dept. of Chemical Engineering} \\
-\textit{California State University, Long Beach}\\
-Long Beach, USA}
-\and
-\IEEEauthorblockN{Dr. Hen Guel Yeh}
-\IEEEauthorblockA{\textit{Dept. of Electrical Engineering} \\
-\textit{California State University, Long Beach}\\
-Long Beach, USA}
-\and
-\IEEEauthorblockN{Dr. Chris Lowe}
-\IEEEauthorblockA{\textit{Dept. of Biological Sciences} \\
-\textit{California State University, Long Beach}\\
-Long Beach, USA}
-\and
-\IEEEauthorblockN{Dr. Wenlu Zhang}
-\IEEEauthorblockA{\textit{Dept. of Computer Science} \\
-\textit{California State University, Long Beach}\\
-Long Beach, USA}
+	\IEEEauthorblockA{\textit{Dept. of Electrical Engineering} \\
+	\textit{California State University, Long Beach}\\
+	Long Beach, USA}
+	\and
+	\IEEEauthorblockN{Emily Messe}
+	\IEEEauthorblockA{\textit{Dept. of Biological Sciences} \\
+	\textit{California State University, Long Beach}\\
+	Long Beach, USA}
+	\and
+	\IEEEauthorblockN{Dr. Yu Yang}
+	\IEEEauthorblockA{\textit{Dept. of Chemical Engineering} \\
+	\textit{California State University, Long Beach}\\
+	Long Beach, USA}
+	\and
+	\IEEEauthorblockN{Dr. Hen Guel Yeh}
+	\IEEEauthorblockA{\textit{Dept. of Electrical Engineering} \\
+	\textit{California State University, Long Beach}\\
+	Long Beach, USA}
+	\and
+	\IEEEauthorblockN{Dr. Chris Lowe}
+	\IEEEauthorblockA{\textit{Dept. of Biological Sciences} \\
+	\textit{California State University, Long Beach}\\
+	Long Beach, USA}
+	\and
+	\IEEEauthorblockN{Dr. Wenlu Zhang}
+	\IEEEauthorblockA{\textit{Dept. of Computer Science} \\
+	\textit{California State University, Long Beach}\\
+	Long Beach, USA}
 }
+
+% \author{\IEEEauthorblockN{Sainesh Karan\textsuperscript{1}, Emily Messe\textsuperscript{2}, Dr. Yu Yang\textsuperscript{3}, Dr.Hen-Guel Yeh\textsuperscript{1}, Dr. Chris Lowe\textsuperscript{2}, Dr. Wenlu Zhang\textsuperscript{4}, Arya Daroui\textsuperscript{1}}
+% \IEEEauthorblockA{
+% \textsuperscript{1}\textit{Dept. of Electrical Engineering, California State University, Long Beach, CA - 90840}\newline
+% \textsuperscript{2}\textit{Dept. of Biological Sciences, California State University, Long Beach, CA- 90840\newline
+% \textsuperscript{3}\textit{Dept. of Chemical Engineering, California State University, Long Beach, CA- 90840\newline}\textsuperscript{4}\textit{Dept. of Computer Science,California State University, Long Beach, CA- 90840\newline}
+% }}}
 
 \maketitle
 
 \begin{abstract}
-In this paper, we aim to ascertain the behavior of California Horn sharks (Heterodontus francisci) based on accelerometer data using a machine learning algorithm called Nearest Neighbors. We use digital signal processing techniques such as Fast Fourier Transform (FFT) and Discrete Cosine Transform (DCT) to represent the accelerometer signal in the frequency domain which helps to reduce the data size required for training the classifier, the computation time and the memory resources needed, besides improving model accuracy. The shark behavior is classified into four classes namely resting, swimming, feeding and non-directed motion. We compare different combinations of time and frequency domain data on the performance of the algorithm. It is shown that the transform domain data considerably improved the accuracy of the classifier.
+In this paper, we aim to ascertain the behavior of California Horn sharks (Heterodontus francisci) based on accelerometer data using a machine learning algorithm called Nearest Neighbors. We use digital signal processing techniques such as Fast Fourier Transform (FFT) and Discrete Cosine Transform (DCT) to represent the accelerometer signal in the frequency domain, which helps to reduce the data size required for training the classifier, the computation time and the memory resources needed, besides improving model accuracy. The shark behavior is classified into four classes namely resting, swimming, feeding and non-directed motion. We compare different combinations of time and frequency domain data on the performance of the algorithm. It is shown that the transform domain data considerably improved the accuracy of the classifier.
 \end{abstract}
 
 \begin{IEEEkeywords}
 Activity Recognition, Shark Behavior, KNN, Digital Signal Processing, Machine Learning
 \end{IEEEkeywords}
 
+% squeeze figures vertically
 \section{Introduction}
 Activity recognition pertains to the task of classifying physical activities undertaken by an individual from the collected data. Differentiating behaviors of free-ranging animals provides an insight into their feeding patterns that help us understand their ecology and their impact on the environment. Recently, accelerometers have been employed to unveil the abstruse lives of marine animals.   It is extremely arduous to observe such species in their natural environments over long periods due to poor visibility, deeper depths, and adverse environmental conditions \cite{1}. Over the years Bio-telemetry devices have become popular amongst researchers to overcome these obstacles and are widely available. An Acceleration Data Logger (ADL) is one such device that measures acceleration caused by body movements that can be used to determine body orientation and kinematics for behavioral classification \cite{1}. ADLs allow data to be recorded and stored at high frequencies, and thus providing high-resolution data with useful information to reveal animal’s behavior. However, the increased   volume of high-resolution data is non-trivial to process, and the useful information hidden behind may not be easy to extract. This challenge motivates the research of automatic behavioral classification by using machine learning techniques. 
 The past few years have seen tremendous development in the fields of machine learning and artificial intelligence, which has spurred a widespread adoption of the technology for several applications. Machine learning algorithms can be broadly categorized into supervised and unsupervised methods. In supervised methods, a training data-set, which consists of the data and the associated outcome/labels, is used to train a model to accurately map the input variables to the outcome/labels. Once the model has been built based on the training data, it can be used to make predictions on new input data. Examples of such algorithms include Decision Trees, Random Forest (RF), K-Nearest Neighbors (KNN) and Neural Networks \cite{1}. 
@@ -88,6 +97,34 @@ TThe data generated by the ADL was labelled manually by viewing the GoPro video 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=3.49in]{2_dynamic.pdf}
+	\caption{Example of dynamic acceleration data collected from the ADL}
+	\label{dynamic}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=3.49in]{3_feed_static_fft.pdf}
+	\caption{Example of dynamic acceleration data collected from the ADL}
+	\label{dynamic}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=3.49in]{4_feed_dynamic_fft.pdf}
+	\caption{Example of dynamic acceleration data collected from the ADL}
+	\label{dynamic}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=3.49in]{5_feed_static_dct.pdf}
+	\caption{Example of dynamic acceleration data collected from the ADL}
+	\label{dynamic}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=3.49in]{6_feed_dynamic_dct.pdf}
 	\caption{Example of dynamic acceleration data collected from the ADL}
 	\label{dynamic}
 \end{figure}
@@ -162,7 +199,7 @@ Thus by considering only the half of the Fourier transform i.e. ignoring the mir
 
 K-Nearest Neighbor is a supervised learning algorithm where the result of new input query is classified as the same class as its k-nearest neighbors. Simplicity and low computational complexity are its main advantages which is why it has been widely used in several studies \cite{17}\cite{18}[19]. The goal of this algorithm is to classify a new input based on attributes of the training samples. The training examples are vectors in a multidimensional feature space, each with a class label \cite{18}. The training phase of the algorithm consists only of storing the data and class labels. There are different metrics to determine the distance between the input query and training samples. Euclidean, City Block, Chebychev are some of the common and popular distance metrics. The accuracy of the K-NN algorithm can be severely impacted by the presence of noisy input data. The values of $k$ completely depend upon the nature of the data. A higher value of $k$ reduces the effect of noise but reduces the distinction between the boundaries of the classes \cite{18}. In cases where the total number of classes are even, $k$ is selected to be odd to prevent ties during classification. 
 \begin{equation}
-	y = \mathrm{arg} \mathrm{min}_{y = 1 \ldots K} \sum^K_{j=1} P(i|x)C(i|j)\qquad P(i|x) = \frac{k_i}{k}
+	y = \mathrm{arg\,min}_{y = 1 \ldots K} \sum^K_{j=1} P(i|x)C(i|j)\qquad P(i|x) = \frac{k_i}{k}
 \end{equation}
 
 In our study, in order to determine the optimum value of $k$ we ran multiple iterations of the program with different distance metrics and values of $k$. It was observed that as we increased the value of $k$ the accuracy of Resting and Swimming behaviors also increased but that of feeding and non-directed motion decreased. This may be since swimming and Resting classes have the most training samples and as the value of $k$ is increased, the locality of the input query is destroyed and the algorithm starts to look at samples that are not neighbors.  We were able to get the best accuracy of feeding and non-directed motion at $k = 15$ with the city block distance metric without sacrificing the accuracy of resting and swimming classes too much.
@@ -171,10 +208,10 @@ Another parameter that is used to improve the performance is the Cost Matrix. It
 
 $$
 \mathrm{cost}(i, j) = \begin{bmatrix}
-	0 & 9.5 & 2 & 6 \\
-	2 & 0 & 3.5 & 4 \\
-	1.25 & 5 & 0 & 1.5 \\
-	2.25 & 3 & 1.5 & 0
+	0.00 & 9.50 & 2.00 & 6.00 \\
+	2.00 & 0.00 & 3.50 & 4.00 \\
+	1.25 & 5.00 & 0.00 & 1.50 \\
+	2.25 & 3.00 & 1.50 & 0.00
 \end{bmatrix}
 $$
 
@@ -237,7 +274,7 @@ Overall, this approach exhibits a wide range of accuracy results. Starting with 
    FFT + DCT & 77.6&	57.6&	46.0&	13.6&	59.69\\
 	Time Domain + FFT & 50.5&	66.3&	19.9&	55.2&	56.89\\
 	Time Domain + DCT & 51.8&	66.0&	21.1&	56.7&	57.48\\
-	Time Domain + FFT + DCt & 53.3&	65.2&	21.1&	56.3&	57.57\\
+	Time Domain + FFT + DCT & 53.3&	65.2&	21.1&	56.3&	57.57\\
 	\hline
 	\end{tabular}
 	\label{without cost matrix}
