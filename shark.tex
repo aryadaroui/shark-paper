@@ -196,7 +196,7 @@ Another parameter introduced to improve the performance of classifier is the Cos
 The algorithm classifies the new data sample by minimizing the expected cost given by equation 2.
 
 \begin{equation}
-	y = \mathrm{arg} \, \mathrm{min}_{y = 1 \ldots n} \sum^n_{j=1}
+	y = \mathrm{arg} \, \mathrm{min}_{y = 1 \ldots n} \sum^n_{j=1} P(i|x) C(i|j)
 \end{equation}
 
 where $y$ is the predicted classification, $n$ is the number of classes and $P(i|x)$ is the condiional probability of class $i$ for observation $x$ and $C(i|j)$ is the user defined cost of classifying an observation as $i$ when its true class is $j$.
