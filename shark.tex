@@ -17,43 +17,52 @@
 
 \title{Classification of Shark Behavior from Accelerometry Data  using Machine Learning}
 
-\author{\IEEEauthorblockN{Sainesh Karan}
-	\IEEEauthorblockA{\textit{Dept. of Electrical Engineering} \\
-	\textit{California State University, Long Beach}\\
-	Long Beach, USA}
-	\and
-	\IEEEauthorblockN{Emily Messe}
-	\IEEEauthorblockA{\textit{Dept. of Biological Sciences} \\
-	\textit{California State University, Long Beach}\\
-	Long Beach, USA}
-	\and
-	\IEEEauthorblockN{Dr. Yu Yang}
-	\IEEEauthorblockA{\textit{Dept. of Chemical Engineering} \\
-	\textit{California State University, Long Beach}\\
-	Long Beach, USA}
-	\and
-	\IEEEauthorblockN{Dr. Hen Guel Yeh}
-	\IEEEauthorblockA{\textit{Dept. of Electrical Engineering} \\
-	\textit{California State University, Long Beach}\\
-	Long Beach, USA}
-	\and
-	\IEEEauthorblockN{Dr. Chris Lowe}
-	\IEEEauthorblockA{\textit{Dept. of Biological Sciences} \\
-	\textit{California State University, Long Beach}\\
-	Long Beach, USA}
-	\and
-	\IEEEauthorblockN{Dr. Wenlu Zhang}
-	\IEEEauthorblockA{\textit{Dept. of Computer Science} \\
-	\textit{California State University, Long Beach}\\
-	Long Beach, USA}
-}
+% \author{\IEEEauthorblockN{Sainesh Karan}
+% 	\IEEEauthorblockA{\textit{Dept. of Electrical Engineering} \\
+% 	\textit{California State University, Long Beach}\\
+% 	Long Beach, USA}
+% 	\and
+% 	\IEEEauthorblockN{Emily Messe}
+% 	\IEEEauthorblockA{\textit{Dept. of Biological Sciences} \\
+% 	\textit{California State University, Long Beach}\\
+% 	Long Beach, USA}
+% 	\and
+% 	\IEEEauthorblockN{Dr. Yu Yang}
+% 	\IEEEauthorblockA{\textit{Dept. of Chemical Engineering} \\
+% 	\textit{California State University, Long Beach}\\
+% 	Long Beach, USA}
+% 	\and
+% 	\IEEEauthorblockN{Dr. Hen Guel Yeh}
+% 	\IEEEauthorblockA{\textit{Dept. of Electrical Engineering} \\
+% 	\textit{California State University, Long Beach}\\
+% 	Long Beach, USA}
+% 	\and
+% 	\IEEEauthorblockN{Dr. Chris Lowe}
+% 	\IEEEauthorblockA{\textit{Dept. of Biological Sciences} \\
+% 	\textit{California State University, Long Beach}\\
+% 	Long Beach, USA}
+% 	\and
+% 	\IEEEauthorblockN{Dr. Wenlu Zhang}
+% 	\IEEEauthorblockA{\textit{Dept. of Computer Science} \\
+% 	\textit{California State University, Long Beach}\\
+% 	Long Beach, USA}
+% }
 
-% \author{\IEEEauthorblockN{Sainesh Karan\textsuperscript{1}, Emily Messe\textsuperscript{2}, Dr. Yu Yang\textsuperscript{3}, Dr.Hen-Guel Yeh\textsuperscript{1}, Dr. Chris Lowe\textsuperscript{2}, Dr. Wenlu Zhang\textsuperscript{4}, Arya Daroui\textsuperscript{1}}
-% \IEEEauthorblockA{
-% \textsuperscript{1}\textit{Dept. of Electrical Engineering, California State University, Long Beach, CA - 90840}\newline
-% \textsuperscript{2}\textit{Dept. of Biological Sciences, California State University, Long Beach, CA- 90840\newline
-% \textsuperscript{3}\textit{Dept. of Chemical Engineering, California State University, Long Beach, CA- 90840\newline}\textsuperscript{4}\textit{Dept. of Computer Science,California State University, Long Beach, CA- 90840\newline}
+% \author{
+% 	\IEEEauthorblockN{Sainesh Karan\IEEEauthorrefmark{1}, Emily Messe\IEEEauthorrefmark{2}, Dr. Yu Yang\IEEEauthorrefmark{3}, Dr.Hen-Guel Yeh\IEEEauthorrefmark{1}, Dr. Chris Lowe\IEEEauthorrefmark{2}, Dr. Wenlu Zhang\IEEEauthorrefmark{4}}
+% 	\IEEEauthorblockA{\IEEEauthorrefmark{1}\textit{Dept. of Electrical Engineering, California State University, Long Beach, CA - 90840}\\
+% \IEEEauthorrefmark{2}\textit{Dept. of Biological Sciences, California State University, Long Beach, CA- 90840\\
+% \IEEEauthorrefmark{3}\textit{Dept. of Chemical Engineering, California State University, Long Beach, CA- 90840\\}
+% \IEEEauthorrefmark{4}\textit{Dept. of Computer Science,California State University, Long Beach, CA- 90840\newline}
 % }}}
+
+\author{
+	\IEEEauthorblockN{Sainesh Karan\IEEEauthorrefmark{1}, Emily Messe\IEEEauthorrefmark{2}, Dr. Yu Yang\IEEEauthorrefmark{3}, Dr.Hen-Guel Yeh\IEEEauthorrefmark{1}, Dr. Chris Lowe\IEEEauthorrefmark{2}, Dr. Wenlu Zhang\IEEEauthorrefmark{4}}
+	\IEEEauthorblockA{\IEEEauthorrefmark{1}Dept. of Electrical Engineering, California State University, Long Beach, CA - 90840}
+	\IEEEauthorblockA{\IEEEauthorrefmark{2}Dept. of Biological Sciences, California State University, Long Beach, CA - 90840}
+	\IEEEauthorblockA{\IEEEauthorrefmark{3}Dept. of Chemical Engineering, California State University, Long Beach, CA - 90840}
+	\IEEEauthorblockA{\IEEEauthorrefmark{4}Dept. of Computer Science, California State University, Long Beach, CA - 90840}
+}
 
 \maketitle
 
@@ -77,30 +86,28 @@ In this paper, we apply the KNN algorithm to classify data collected from the AD
 \section{Data Aquisition and Pre-Processing}
 
 \subsection{Data Aquisition}
-Laboratory trials were conducted to quantify acceleration signatures of California horn sharks (Heterodontus francisci) for different behaviors including resting, swimming, and feeding (prey capture and handling). Horn sharks were chosen as a model species to represent a demersal, resting shark that are capable of eating hard-shelled invertebrates \cite{8, 9, 10}. Sharks were collected from Santa Catalina Island, and transported back to the CSULB Shark Lab. Trials occurred with a single shark in a 340 L tank with two GoPro video cameras, one mounted on the bottom of the tank, and one above the tank. For each trial, a shark was fitted with an accelerometer data logger (ADL; Cefas G6a+ or Technosmart AxyDepth) via a custom tag package. Accelerometers recorded 3D acceleration data at 25 Hz. All acceleration data was processed in IgorPro (vers. 6.2, WaveMetrics) using Ethographer \cite{11}. Static acceleration represents the 3D body position and orientation due to gravity (i.e., pitch, X static; roll, Y static; yaw, Z static), whereas dynamic acceleration represents the 3D body movements (i.e., surge, X dynamic; heave, Y dynamic; sway, Z dynamic) as shown in Figure 1. Static acceleration was separated from dynamic acceleration using a 2 second box smoother \cite{12}. The plots for the raw data are shown in Figures 2 and 3. %Overall dynamic body acceleration (ODBA) was calculated by summing the absolute value of the dynamic axes and is used as a proxy for energetic expenditure and oxygen consumption \cite{13}%
-Sharks were tagged approximately 6 hours before the start of the trial to allow the shark to acclimate. 
+Laboratory trials were conducted to quantify acceleration signatures of California horn sharks (Heterodontus francisci) for different behaviors including resting, swimming, and feeding (prey capture and handling). Horn sharks were chosen as a model species to represent a demersal, resting shark that are capable of eating hard-shelled invertebrates \cite{8, 9, 10}. Sharks were collected from Santa Catalina Island, and transported back to the CSULB Shark Lab. Trials occurred with a single shark in a 340L tank with two GoPro video cameras, one mounted on the bottom of the tank, and one above the tank. For each trial, a shark was fitted with an accelerometer data logger (ADL; Cefas G6a+ or Technosmart AxyDepth) via a custom tag package. Accelerometers recorded 3D acceleration data at 25 Hz. All acceleration data was processed in IgorPro (vers. 6.2, WaveMetrics) using Ethographer \cite{11}. Static acceleration represents the 3D body position and orientation due to gravity (i.e., pitch, X static; roll, Y static; yaw, Z static), whereas dynamic acceleration represents the 3D body movements (i.e., surge, X dynamic; heave, Y dynamic; sway, Z dynamic) as shown in Figure 1. Static acceleration was separated from dynamic acceleration using a 2 second box smoother \cite{12}. The plots for the raw data from Dataset 6 are shown in Figures 2 and 3; the plots represent the tri-axial Static and Dynamic data collected from the trial that was conducted between 5:39 and 6:56pm. Sharks were tagged approximately 6 hours before the start of the trial to allow the shark to acclimate. 
 
 To characterize motion patterns associated with prey manipulation and handling, instrumented sharks were then fed three different prey types including a live purple urchin ($< 4$ cm test diameter), a frozen and thawed squid (whole, with pen), and a frozen and thawed shrimp. Prey was buried or placed away from the shark in order to characterize natural feeding behaviors expected in the field. A trial concluded when the shark had consumed all trial prey. Trials were approximately 2 hours long, and a total of seven trials were done on four different individuals. 
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=3.49in]{accel.pdf}
-	\caption{Breakdown of acceleration data recorded at 25 Hz. (a) Static acceleration represents the body position and orientation of the shark due to gravity. (b) Dynamic acceleration represents the body movements of the shark.}
+	\caption{Breakdown of tri-axial acceleration data. (a) Static acceleration represents the body position and orientation      of the shark due to gravity. (b) Dynamic acceleration represents the body movements of the shark.}
 	\label{accel}
 \end{figure} % add markers for the time
 
-The data generated by the ADL was labelled manually by viewing the GoPro video recording of each trial and identifying the shark behaviour with the corresponding time-stamps. All data samples that were unlabelled were removed from the dataset. An example of the recorded data from dataset number 7 is shown in Figures 2 and 3.
-
+The data generated by the ADL was labelled manually by viewing the GoPro video recording of each trial and identifying the shark behaviour with the corresponding time-stamps. All data samples that were unlabelled were removed from the dataset. 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=3.49in]{1_static.pdf}
-	\caption{Example of Static acceleration data collected from the ADL}
+	\caption{The plots represent Static tri-axial data collected at 25 Hz for a period of approximately 2 hours.}
 	\label{static}
 \end{figure}
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=3.49in]{2_dynamic.pdf}
-	\caption{Example of dynamic acceleration data collected from the ADL}
+	\caption{The plots represent Dynamic tri-axial data collected at 25 Hz for a period of approximately 2 hours.}
 	\label{dynamic}
 \end{figure}
 
@@ -141,29 +148,29 @@ As can be seen from Table 1, the trials were of varying lengths with varying dis
 	\end{tabular}
 	\label{}
 \end{table*}
-To improve the classifier efficiency, we convert the input signals into different domains of representation. Transforming signals into frequency domain allows us to capture the repetitive nature of the signals \cite{13}. This repetition often correlates to the periodic nature of a specific activity such as the tail beat of the shark while swimming or movement of the head while feeding.  Among the most popularly used transformation techniques is the Fourier Transform, which allows one to represent the most important characteristics of a time-based signal such as its  DC and dominant frequency components in the frequency domain as shown in Figures 4 and 5\cite{13}. Fast Fourier Transform (FFT) decomposes an input signal into its constituent sinusoids. In addition to the FFT, other frequency-based representations have been used such as Discrete Cosine Transform (DCT) which in contrast, decomposes a given signal into its constituent cosine waves. DCT returns an ordered sequence of coefficients such that the most significant information is concentrated at the lower indices of the sequence as can be seen from Figures 6 and 7.  This means that higher DCT coefficients can be discarded without losing information, which makes DCT suitable for data compression \cite{14}.
-\begin{figure}[h!] % Caption only for feeding behavior, how this is the specific feeding signature.
+To improve the classifier efficiency, we convert the input signals into different domains of representation. Transforming signals into frequency domain allows us to capture the repetitive nature of the signals \cite{13}. This repetition often correlates to the periodic nature of a specific activity such as the tail beat of the shark while swimming or movement of the head while feeding.  Among the most popularly used transformation techniques is the Fourier Transform, which allows one to represent the most important characteristics of a time-based signal such as its  DC and dominant frequency components in the frequency domain as shown in Figures 4 and 5 for the collective Feeding data.\cite{13}. Fast Fourier Transform (FFT) decomposes an input signal into its constituent sinusoids. In addition to the FFT, other frequency-based representations have been used such as Discrete Cosine Transform (DCT) which in contrast, decomposes a given signal into its constituent cosine waves. DCT returns an ordered sequence of coefficients such that the most significant information is concentrated at the lower indices of the sequence as can be seen from Figures 6 and 7.  This means that higher DCT coefficients can be discarded without losing information, which makes DCT suitable for data compression \cite{14}.
+\begin{figure}[h!]
 	\centering
-	\includegraphics[width=3.2in]{3_feed_static_fft.pdf}
-	\caption{Example of static data with FFT}
+	\includegraphics[width=3.1in]{3_feed_static_fft.pdf}
+	\caption{The plot represents the Fourier Transform of Static X -axis of the collective Feeding data from Datasets 1-7 }
 	\label{dynamic}
 \end{figure}
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=3.2in]{4_feed_dynamic_fft.pdf}
-	\caption{Example of dynamic data with FFT}
+	\includegraphics[width=3.1in]{4_feed_dynamic_fft.pdf}
+	\caption{The plot represents the Fourier Transform of Dynamic X -axis of the collective Feeding data from Datasets 1-7}
 	\label{dynamic}
 \end{figure}
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=3.2in]{5_feed_static_dct.pdf}
-	\caption{Example of static data with DCT}
+	\includegraphics[width=3.1in]{5_feed_static_dct.pdf}
+	\caption{The plot represents the Discrete Cosine Transform of Static X -axis of the collective Feeding data from Datasets 1-7}
 	\label{dynamic}
 \end{figure}
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=3.2in]{6_feed_dynamic_dct.pdf}
-	\caption{Example of dynamic data with DCT}
+	\includegraphics[width=3.1in]{6_feed_dynamic_dct.pdf}
+	\caption{The plot represents the Discrete Cosine Transform of Dynamic X -axis of the collective Feeding data from Datasets 1-7}
 	\label{dynamic}
 \end{figure}
 We compute the frequency analysis for the time signal of a specific length or window using the Fast Fourier Transform (FFT) algorithm. In this case we use a window of 25 data samples or 1 second so as to match the sampling frequency of the ADL and to avoid the transitioning of behaviour classes within the window. In order to overcome the bias in the training dataset against feeding class. We oversampled the feeding data by sliding the window with a 50\% overlap \cite{15} so as increase the number of feeding samples in the training dataset. Due to the symmetric property of Fourier Transform, we use only the 50\% of the data in the frequency domain. Similarly, we use only 50\% of the data of the DCT and discard the data in the higher frequency bins. However, it should be noted that the data reduction take place in when we use the transform domain data by itself. In the event where we combine the time and frequency domain data, the complete FFT and DCT are used so as to keep the input matrix to the model consistent. In such cases, no data reduction takes place. The total data samples in the transform domain are shown in Table III.
@@ -183,13 +190,52 @@ Thus by considering only the half of the Fourier transform i.e. ignoring the mir
 	\end{tabular}
 	\label{total samples}
 \end{table}
+
 \section{Behavior Classification using K-Nearest Neighbors}
-K-Nearest Neighbor is a supervised learning algorithm where the result of new test sample is classified based on the majority of its $k$ nearest neighbors, where $k$ is a user defined hyper-parameter. The neighbors are determined by measuring the distance between the test sample and all the training samples. The goal of this algorithm is to classify a new input based on attributes of the training samples where the training samples are vectors in a multidimensional feature space, each with a class label \cite{17}. Due to its simplicity and low complexity, it has been widely applied in several studies \cite{16, 17, 18}. KNN classifier is model free method meaning it does not learn a model that maps the relation between the inputs and outputs; it instead stores the training samples that are used to classify each new instance of the test data.\cite{19} There are different metrics to determine the distance between the input query and training samples: Euclidean, City Block, Chebychev are some of the popular distance metrics. The value of $k$ completely depends upon the nature of the data. A higher value of $k$ reduces the effect of noise, but reduces the distinction between the boundaries of the classes \cite{17}. In cases where the total number of classes are even, $k$ is selected to be odd to prevent ties during classification. 
+K-Nearest Neighbor is a supervised learning algorithm where the result of new test sample is classified based on the majority of its $k$ nearest neighbors, where $k$ is a user defined hyper-parameter. The neighbors are determined by measuring the distance between the test sample and all the training samples. The goal of this algorithm is to classify a new input based on attributes of the training samples where the training samples are vectors in a multidimensional feature space, each with a class label \cite{17}. Due to its simplicity and low complexity, it has been widely applied in several studies \cite{16}\cite{17}\cite{18}. KNN classifier is model free method meaning it does not learn a model that maps the relation between the inputs and outputs; it instead stores the training samples that are used to classify each new instance of the test data.\cite{19} There are different metrics to determine the distance between the input query and training samples: Euclidean, City Block, Chebychev are some of the popular distance metrics. The value of $k$ completely depend upon the nature of the data. A higher value of $k$ reduces the effect of noise but reduces the distinction between the boundaries of the classes \cite{17}. In cases where the total number of classes are even, $k$ is selected to be odd to prevent ties during classification. 
 The classifier runs through the training dataset and computes the distance between the test sample $x$ from each training sample and forms a set of the $k$ nearest neighbors. It then computes the conditional probability of $x$ belonging to each class as shown in (1) and classifies the test observation to the class with the highest probability.
 \begin{equation}
 P(i|x) = \frac{k_i}{k}
 \end{equation}
 Here $k_i$ is the number of nearest neighbors belonging to class $i$ and $k$ is the number of nearest neighbours. In our study, in order to determine the optimum value of $k$ we ran multiple iterations of the program with different distance metrics and values of $k$. It was observed that as we increased the value of $k$ the accuracy of Resting and Swimming behaviors also increased but that of Feeding and Non-Directed Motion decreased. This may be since Swimming and Resting classes have the most training samples and as the value of $k$ is increased, the locality of the input query is destroyed and the algorithm starts to look at samples that are not neighbors.  We were able to get the best accuracy of Feeding and Non-Directed Motion at $k$ = 15 with the city block distance metric while limiting the loss of classification  accuracy for resting and Swimming classes.
+
+\begin{table*}[h]
+	\centering
+	\caption{Classification results for various combination of pre-processing techniques using KNN classifier without cost matrix in percent.}
+	\begin{tabular}{l c c c c c}
+	\hline
+	& \textbf{Resting} (\%) & \textbf{Swimming}  (\%) & \textbf{Feeding}  (\%) & \textbf{Non-directed Motion}  (\%) & \textbf{Overall}  (\%) \\
+	\hline
+	Time domain & 50.04&	72.0&	12.5&	53.70&	59.05\\
+     FFT & 59.6&	82.8&	1.4&	52.7&	66.89\\
+     DCT & 81.2&	63.4&	2.1&	24.5&	62.64 \\
+   FFT + DCT & 81.9&	70.2&	2.9&	36.0& 	67.39\\
+	Time domain + FFT & 52.4& 	71.1&	6.6&	62.3&	59.95 \\
+	Time domain + DCT & 53.6& 	70.1&	8.1&	61.4&	60.22\\
+	Time domain + FFT + DCT & 55.9&	70.3&	4.5&	62.4&	60.76 \\
+	\hline
+	\end{tabular}
+	\label{without cost matrix}
+\end{table*}
+
+\begin{table*}[h]
+	\centering
+	\caption{Results for various combination of preprocessing techniques using KNN classifier with cost matrix in perecent.}
+	\begin{tabular}{l c c c c c}
+	\hline
+	& \textbf{Resting} (\%) & \textbf{Swimming}  (\%) & \textbf{Feeding}  (\%) & \textbf{Non-directed Motion}  (\%) & \textbf{Overall}  (\%) \\
+	\hline
+	Time domain & 49.6	&66.7&	21.0&	51.0&	56.39\\
+     FFT & 54.3&	72.3&	39.8&	31.1&	59.66\\
+     DCT & 76.8&	48.5&	31.9&	8.2&	53.74\\
+   FFT + DCT & 77.6&	57.6&	46.&	13.6&	59.69\\
+	Time Domain + FFT & 50.5&	66.3&	19.9&	55.2&	56.89\\
+	Time Domain + DCT & 51.8&	66.0&	21.1&	56.7&	57.48\\
+	Time Domain + FFT + DCT & 53.3&	65.2&	21.1&	56.3&	57.57\\
+	\hline
+	\end{tabular}
+	\label{without cost matrix}
+\end{table*}
 
 Another parameter introduced to improve the performance of classifier is the Cost Matrix. It is a square matrix, denoted by $\mathrm{cost}(i, j)$, which represents the penalty of mis-classifying a data belonging to class $i$ to class $j$.  Naturally all diagonal elements of the Cost Matrix are zero since there is no penalty for correct classification. 
 
@@ -235,43 +281,7 @@ $$
 % 	\label{total samples}
 % \end{table}
 
-\begin{table*}[h]
-	\centering
-	\caption{Classification results for various combination of pre-processing techniques using KNN classifier without cost matrix in percent.}
-	\begin{tabular}{l c c c c c}
-	\hline
-	& \textbf{Resting} (\%) & \textbf{Swimming}  (\%) & \textbf{Feeding}  (\%) & \textbf{Non-directed Motion}  (\%) & \textbf{Overall}  (\%) \\
-	\hline
-	Time domain & 50.04&	72.0&	12.5&	53.70&	59.05\\
-     FFT & 59.6&	82.8&	1.4&	52.7&	66.89\\
-     DCT & 81.2&	63.4&	2.1&	24.5&	62.64 \\
-   FFT + DCT & 81.9&	70.2&	2.9&	36.0& 	67.39\\
-	Time domain + FFT & 52.4& 	71.1&	6.6&	62.3&	59.95 \\
-	Time domain + DCT & 53.6& 	70.1&	8.1&	61.4&	60.22\\
-	Time domain + FFT + DCT & 55.9&	70.3&	4.5&	62.4&	60.76 \\
-	\hline
-	\end{tabular}
-	\label{without cost matrix}
-\end{table*}
 
-\begin{table*}[h]
-	\centering
-	\caption{Results for various combination of preprocessing techniques using KNN classifier with cost matrix in perecent.}
-	\begin{tabular}{l c c c c c}
-	\hline
-	& \textbf{Resting} (\%) & \textbf{Swimming}  (\%) & \textbf{Feeding}  (\%) & \textbf{Non-directed Motion}  (\%) & \textbf{Overall}  (\%) \\
-	\hline
-	Time domain & 49.6	&66.7&	21.0&	51.0&	56.39\\
-     FFT & 54.3&	72.3&	39.8&	31.1&	59.66\\
-     DCT & 76.8&	48.5&	31.9&	8.2&	53.74\\
-   FFT + DCT & 77.6&	57.6&	46.&	13.6&	59.69\\
-	Time Domain + FFT & 50.5&	66.3&	19.9&	55.2&	56.89\\
-	Time Domain + DCT & 51.8&	66.0&	21.1&	56.7&	57.48\\
-	Time Domain + FFT + DCT & 53.3&	65.2&	21.1&	56.3&	57.57\\
-	\hline
-	\end{tabular}
-	\label{without cost matrix}
-\end{table*}
 
 The KNN classifier was tested on Dataset 5 which was pre-processed in the same manner as the training data using a window of 1 second without any overlap. The results for the experiment without using the cost matrix are shown in Table IV. Overall, this approach exhibits a wide range of accuracy results. Starting with only time domain data it is observed that the technique surprisingly had the best accuracy for feeding behavior even though its overall accuracy was the lowest. The overall accuracy increases when the transform domain data is used for classification. It increases from 59.05\% to 66.89\% when using only FFT and to 67.39\% after combining FFT and DCT. It however reduces back to 59.95\% when time domain data is combined with transform domain. It can also be observed that DCT helps to increase feeding accuracy. The feeding accuracy jumps from 1.40\% to 2.90\% when FFT is combined with DCT. Similarly, the feeding accuracy jumps from 6.60\% to 8.10\% when time domain data is combined with DCT. The reason why DCT aids the improvement in feeding accuracy needs to be further investigated. For most cases the accuracy for Resting behavior remained around 50-55\% only increasing up to 81\% when using a combination of FFT and DCT. The swimming accuracy remained consistent in most cases only dropping to 63\% when using only DCT data. This was rather surprising as the maximum training data samples belonged to this class. It was difficult to come to a conclusion on how the accuracy of the NDM behavior was impacted. It can however be observed that NDM accuracy is higher in cases where time domain data is used as opposed to transform domain data. Overall, the performance of the classifier was rather dismal as it struggled to classify feeding data accurately. This challenge was overcome by using a cost matrix to improve the feeding accuracy. The results for the classifier with the cost matrix are shown in Table V.
 
@@ -284,6 +294,8 @@ In this paper we applied the KNN algorithm to classify shark behavior based on a
 Future work may include developing a more robust methodology to optimize the parameters such as the value of k and the distance metric. and the cost matrix. A study can also be performed to  compare the performance of various other machine learning algorithms such as Support Vector Machines (SVM), Neural Networks and Decision Trees. Also feature extraction can be used to extract statistical features from the raw as well as frequency domain data to help the algorithm differentiate between the classes. The selection of features and the optimum number required could be a topic of further research. In addition to this, future work may also include the use of wavelet analysis to derive time-frequency features from the data.  Finally, the ultimate goal of this research is applying the classification models on data collected from the shark’s natural environment to unravel feeding patterns of California horn sharks. This would allow researchers to gain an insight into horn shark’s energetic demands and activity budgets to better understand their ecology.
 
 \section{Acknowledgment}
+
+The authors would like to thank Mr. Arya Daroui, Student, California State University, Long Beach for his comments and help in editing this paper.
 
 \bibliographystyle{ieeetran}
 \bibliography{bib}
