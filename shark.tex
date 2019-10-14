@@ -151,28 +151,40 @@ As can be seen from Table 1, the trials were of varying lengths with varying dis
 To improve the classifier efficiency, we convert the input signals into different domains of representation. Transforming signals into frequency domain allows us to capture the repetitive nature of the signals \cite{13}. This repetition often correlates to the periodic nature of a specific activity such as the tail beat of the shark while swimming or movement of the head while feeding.  Among the most popularly used transformation techniques is the Fourier Transform, which allows one to represent the most important characteristics of a time-based signal such as its  DC and dominant frequency components in the frequency domain as shown in Figures 4 and 5 for the collective Feeding data.\cite{13}. Fast Fourier Transform (FFT) decomposes an input signal into its constituent sinusoids. In addition to the FFT, other frequency-based representations have been used such as Discrete Cosine Transform (DCT) which in contrast, decomposes a given signal into its constituent cosine waves. DCT returns an ordered sequence of coefficients such that the most significant information is concentrated at the lower indices of the sequence as can be seen from Figures 6 and 7.  This means that higher DCT coefficients can be discarded without losing information, which makes DCT suitable for data compression \cite{14}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=3.1in]{3_feed_static_fft.pdf}
-	\caption{The plot represents the Fourier Transform of Static X -axis of the collective Feeding data from Datasets 1-7 }
-	\label{dynamic}
+	\includegraphics[width=3.3in]{fft.pdf}
+	\caption{lorem ipsum}
+	\label{fft}
 \end{figure}
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=3.1in]{4_feed_dynamic_fft.pdf}
-	\caption{The plot represents the Fourier Transform of Dynamic X -axis of the collective Feeding data from Datasets 1-7}
-	\label{dynamic}
+	\includegraphics[width=3.3in]{dct.pdf}
+	\caption{lorem ipsum}
+	\label{dct}
 \end{figure}
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=3.1in]{5_feed_static_dct.pdf}
-	\caption{The plot represents the Discrete Cosine Transform of Static X -axis of the collective Feeding data from Datasets 1-7}
-	\label{dynamic}
-\end{figure}
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=3.1in]{6_feed_dynamic_dct.pdf}
-	\caption{The plot represents the Discrete Cosine Transform of Dynamic X -axis of the collective Feeding data from Datasets 1-7}
-	\label{dynamic}
-\end{figure}
+% \begin{figure}[h!]
+% 	\centering
+% 	\includegraphics[width=3.1in]{3_feed_static_fft.pdf}
+% 	\caption{The plot represents the Fourier Transform of Static X -axis of the collective Feeding data from Datasets 1-7 }
+% 	\label{dynamic}
+% \end{figure}
+% \begin{figure}[h!]
+% 	\centering
+% 	\includegraphics[width=3.1in]{4_feed_dynamic_fft.pdf}
+% 	\caption{The plot represents the Fourier Transform of Dynamic X -axis of the collective Feeding data from Datasets 1-7}
+% 	\label{dynamic}
+% \end{figure}
+% \begin{figure}[h!]
+% 	\centering
+% 	\includegraphics[width=3.1in]{5_feed_static_dct.pdf}
+% 	\caption{The plot represents the Discrete Cosine Transform of Static X -axis of the collective Feeding data from Datasets 1-7}
+% 	\label{dynamic}
+% \end{figure}
+% \begin{figure}[h!]
+% 	\centering
+% 	\includegraphics[width=3.1in]{6_feed_dynamic_dct.pdf}
+% 	\caption{The plot represents the Discrete Cosine Transform of Dynamic X -axis of the collective Feeding data from Datasets 1-7}
+% 	\label{dynamic}
+% \end{figure}
 We compute the frequency analysis for the time signal of a specific length or window using the Fast Fourier Transform (FFT) algorithm. In this case we use a window of 25 data samples or 1 second so as to match the sampling frequency of the ADL and to avoid the transitioning of behaviour classes within the window. In order to overcome the bias in the training dataset against feeding class. We oversampled the feeding data by sliding the window with a 50\% overlap \cite{15} so as increase the number of feeding samples in the training dataset. Due to the symmetric property of Fourier Transform, we use only the 50\% of the data in the frequency domain. Similarly, we use only 50\% of the data of the DCT and discard the data in the higher frequency bins. However, it should be noted that the data reduction take place in when we use the transform domain data by itself. In the event where we combine the time and frequency domain data, the complete FFT and DCT are used so as to keep the input matrix to the model consistent. In such cases, no data reduction takes place. The total data samples in the transform domain are shown in Table III.
 Thus by considering only the half of the Fourier transform i.e. ignoring the mirror image and the high frequency components of the DCT, we can reduce the total size of the data to be classified by half.
 \begin{table}[h] % need to wrap
