@@ -17,45 +17,6 @@
 
 \title{Classification of Shark Behaviors using K-Nearest Neigbours}
 
-% \author{\IEEEauthorblockN{Sainesh Karan}
-% 	\IEEEauthorblockA{\textit{Dept. of Electrical Engineering} \\
-% 	\textit{California State University, Long Beach}\\
-% 	Long Beach, USA}
-% 	\and
-% 	\IEEEauthorblockN{Emily Meese}
-% 	\IEEEauthorblockA{\textit{Dept. of Biological Sciences} \\
-% 	\textit{California State University, Long Beach}\\
-% 	Long Beach, USA}
-% 	\and
-% 	\IEEEauthorblockN{Dr. Yu Yang}
-% 	\IEEEauthorblockA{\textit{Dept. of Chemical Engineering} \\
-% 	\textit{California State University, Long Beach}\\
-% 	Long Beach, USA}
-% 	\and
-% 	\IEEEauthorblockN{Dr. Hen Guel Yeh}
-% 	\IEEEauthorblockA{\textit{Dept. of Electrical Engineering} \\
-% 	\textit{California State University, Long Beach}\\
-% 	Long Beach, USA}
-% 	\and
-% 	\IEEEauthorblockN{Dr. Chris Lowe}
-% 	\IEEEauthorblockA{\textit{Dept. of Biological Sciences} \\
-% 	\textit{California State University, Long Beach}\\
-% 	Long Beach, USA}
-% 	\and
-% 	\IEEEauthorblockN{Dr. Wenlu Zhang}
-% 	\IEEEauthorblockA{\textit{Dept. of Computer Science} \\
-% 	\textit{California State University, Long Beach}\\
-% 	Long Beach, USA}
-% }
-
-% \author{
-% 	\IEEEauthorblockN{Sainesh Karan\IEEEauthorrefmark{1}, Emily Messe\IEEEauthorrefmark{2}, Dr. Yu Yang\IEEEauthorrefmark{3}, Dr.Hen-Guel Yeh\IEEEauthorrefmark{1}, Dr. Chris Lowe\IEEEauthorrefmark{2}, Dr. Wenlu Zhang\IEEEauthorrefmark{4}}
-% 	\IEEEauthorblockA{\IEEEauthorrefmark{1}\textit{Dept. of Electrical Engineering, California State University, Long Beach, CA - 90840}\\
-% \IEEEauthorrefmark{2}\textit{Dept. of Biological Sciences, California State University, Long Beach, CA- 90840\\
-% \IEEEauthorrefmark{3}\textit{Dept. of Chemical Engineering, California State University, Long Beach, CA- 90840\\}
-% \IEEEauthorrefmark{4}\textit{Dept. of Computer Science,California State University, Long Beach, CA- 90840\newline}
-% }}}
-
 \author{
 	\IEEEauthorblockN{Sainesh Karan\IEEEauthorrefmark{1}, Emily N Meese\IEEEauthorrefmark{2}, Yu Yang\IEEEauthorrefmark{3}, Hen-Guel Yeh\IEEEauthorrefmark{1}, Christopher G Lowe\IEEEauthorrefmark{2}, Wenlu Zhang\IEEEauthorrefmark{4}}
 	\IEEEauthorblockA{\IEEEauthorrefmark{1}Dept. of Electrical Engineering, California State University, Long Beach, CA - 90840}
@@ -67,7 +28,7 @@
 \maketitle
 
 \begin{abstract}
-In this paper, we aim to ascertain the behavior of California horn sharks textit{(Heterodontus francisci)} based on accelerometer data using a machine learning algorithm called Nearest Neighbors. We use digital signal processing techniques such as Fast Fourier Transform (FFT) and Discrete Cosine Transform (DCT) to represent the accelerometer signal in the frequency domain which reduces the data size required for training the classifier, the computation time and the memory resources needed, in addition to improving model accuracy. The shark behavior is classified into four classes namely Resting, Swimming, Feeding and Non-Directed Motion. We compare different combinations of time and frequency domain data on the performance of the algorithm. It is shown that the transform domain data considerably improved the accuracy of the classifier.
+In this paper, we aim to ascertain the behavior of California horn sharks \textit{(Heterodontus francisci)} based on accelerometer data using a machine learning algorithm called Nearest Neighbors. We use digital signal processing techniques such as Fast Fourier Transform (FFT) and Discrete Cosine Transform (DCT) to represent the accelerometer signal in the frequency domain which reduces the data size required for training the classifier, the computation time and the memory resources needed, in addition to improving model accuracy. The shark behavior is classified into four classes namely Resting, Swimming, Feeding and Non-Directed Motion. We compare different combinations of time and frequency domain data on the performance of the algorithm. It is shown that the transform domain data considerably improved the accuracy of the classifier.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -86,7 +47,7 @@ In this paper, we apply the KNN algorithm to classify data collected from the AD
 \section{Data Aquisition and Pre-Processing}
 
 \subsection{Data Aquisition}
-Laboratory trials were conducted to quantify acceleration signatures of California horn sharks textit{(Heterodontus francisci)} for different behaviors including Resting, Swimming, and Feeding. Here, the Resting behavior was defined as the shark lying motionless on the seafloor, Swimming was characterized by the repetitive tail beats and forward movement of the shark. Feeding referd to prey capture, handling, chewing and head shaking while movements along the seafloor that could not be classified as true Resting or Swimming were classified as Non-Directed Motion. Horn sharks were chosen as a model species to represent a demersal resting shark that are capable of eating hard-shelled invertebrates \cite{8, 9, 10}. Sharks were collected from Santa Catalina Island, and transported back to the CSULB Shark Lab. Trials occurred with a single shark in a 340L tank with two GoPro video cameras, one mounted on the bottom of the tank, and one above the tank. For each trial, a shark was fitted with an accelerometer data logger (ADL; Cefas G6a+ or Technosmart AxyDepth) via a custom tag package. Accelerometers recorded 3D acceleration data at 25 Hz. All acceleration data was processed in IgorPro (vers. 6.2, WaveMetrics) using Ethographer \cite{11}. Static acceleration represents the 3D body position and orientation due to gravity (i.e., pitch, X static; roll, Y static; yaw, Z static), whereas dynamic acceleration represents the 3D body movements (i.e., surge, X dynamic; heave, Y dynamic; sway, Z dynamic) as shown in Figure 1. Static acceleration was separated from dynamic acceleration using a 2 second box smoother \cite{12}. The plots for the raw data from Dataset 6 are shown in Figures 2 and 3; the plots represent the tri-axial Static and Dynamic data collected from the trial that was conducted between PST: 17:39 and 18:56 PST. Sharks were tagged approximately 6 hours before the start of the trial to allow the shark to acclimate. 
+Laboratory trials were conducted to quantify acceleration signatures of California horn sharks \textit{(Heterodontus francisci)} for different behaviors including Resting, Swimming, and Feeding. Here, the Resting behavior was defined as the shark lying motionless on the seafloor, Swimming was characterized by the repetitive tail beats and forward movement of the shark. Feeding referd to prey capture, handling, chewing and head shaking while movements along the seafloor that could not be classified as true Resting or Swimming were classified as Non-Directed Motion. Horn sharks were chosen as a model species to represent a demersal resting shark that are capable of eating hard-shelled invertebrates \cite{8, 9, 10}. Sharks were collected from Santa Catalina Island, and transported back to the CSULB Shark Lab. Trials occurred with a single shark in a 340L tank with two GoPro video cameras, one mounted on the bottom of the tank, and one above the tank. For each trial, a shark was fitted with an accelerometer data logger (ADL; Cefas G6a+ or Technosmart AxyDepth) via a custom tag package. Accelerometers recorded 3D acceleration data at 25 Hz. All acceleration data was processed in IgorPro (vers. 6.2, WaveMetrics) using Ethographer \cite{11}. Static acceleration represents the 3D body position and orientation due to gravity (i.e., pitch, X static; roll, Y static; yaw, Z static), whereas dynamic acceleration represents the 3D body movements (i.e., surge, X dynamic; heave, Y dynamic; sway, Z dynamic) as shown in Figure 1. Static acceleration was separated from dynamic acceleration using a 2 second box smoother \cite{12}. The plots for the raw data from Dataset 6 are shown in Figures 2 and 3; the plots represent the tri-axial Static and Dynamic data collected from the trial that was conducted between PST: 17:39 and 18:56 PST. Sharks were tagged approximately 6 hours before the start of the trial to allow the shark to acclimate. 
 
 To characterize motion patterns associated with prey manipulation and handling, instrumented sharks were then fed three different prey types including a live purple urchin ($<4$ cm test diameter), a frozen and thawed squid (whole, with pen), and a frozen and thawed shrimp. Prey was buried or placed away from the shark in order to characterize natural feeding behaviors expected in the field. A trial concluded when the shark had consumed all trial prey. Trials were approximately 2 hours long, and a total of seven trials were done with four different individuals. 
 
@@ -286,5 +247,5 @@ Future work may include developing a more robust methodology to optimize the par
 The authors would like to thank Mr. Arya Daroui, Student, California State University, Long Beach for his comments and help in editing this paper.
 
 \bibliographystyle{ieeetran}
-\bibliography{bib}
+\bibliography{Shark_citations}
 \end{document}
