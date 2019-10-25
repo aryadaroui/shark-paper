@@ -23,7 +23,7 @@
 	
 \begin{document}
 
-\title{Classification of Shark Behaviors using K-Nearest Neighbours \thanks{Funding for laboratory trials was provided by AltaSea, the Southern California Academy of Sciences Research Grant, and the Richard B. Loomis Graduate Research Grant.}
+\title{Classification of Shark Behaviors using K-Nearest Neighbors \thanks{Funding for laboratory trials was provided by AltaSea, the Southern California Academy of Sciences Research Grant, and the Richard B. Loomis Graduate Research Grant.}
 }
 
 \author{
@@ -95,10 +95,10 @@ As can be seen from Table I, the trials were of varying lengths with varying dis
 	& \textbf{Dataset 1} & \textbf{Dataset 2} & \textbf{Dataset 3} & \textbf{Dataset 4} & \textbf{Dataset 5} & \textbf{Dataset 6} & \textbf{Dataset 7} & \multicolumn{1}{c}{\textbf{Total}}\\
 	\hline
 	Resting & 157,750 & 565,580 & 379,850 & 10,250 & 6,150 & 27,975 & 77,374 & 1,224,929 \\
-	Swimming & 6,200 & 209,550 & 5,100 & 81,525 & 7,975 & 19,750 & 61,475 & 391575 \\
+	Swimming & 6,200 & 209,550 & 5,100 & 81,525 & 7,975 & 19,750 & 61,475 & 391,575 \\
 	Feeding & 5,700 & 350 & 200 & 1,375 & 875 & 2,900 & 2,100 & 13,500 \\
-	NDM & 51,950 & 7,400 & 15,700 & 1,750 & 1,775 & 27,025 & 5,400 & 11,1000 \\
-	Total & 22,1600 & 782,880 & 40,0850 & 94,900 & 16,775 & 77,650 & 146,349 & -- \\
+	NDM & 51,950 & 7,400 & 15,700 & 1,750 & 1,775 & 27,025 & 5,400 & 111,000 \\
+	Total & 221,600 & 782,880 & 400,850 & 94,900 & 16,775 & 77,650 & 146,349 & 1,741,004 \\
 	\hline
 	\end{tabular}
 	\label{}
@@ -115,9 +115,9 @@ As can be seen from Table I, the trials were of varying lengths with varying dis
 	Swimming & 6,000 & 20,000 & 5,000 & 20,000 & 19,000 & 20,000 & 90,000 \\
 	Feeding & 5,700 & 350 & 200 & 1,375 & 2,900 & 2,100 & 12,625 \\
 	NDM & 30,000 & 7,000 & 15,000 & 1,500 & 25,000 & 5,400 & 83,900 \\
-	Total & 61,700 & 47,350 & 40,200 & 32,875 & 62,900 & 42,500 & -- \\
+	Total & 61,700 & 47,350 & 40,200 & 32,875 & 61,900 & 42,500 & 286,525 \\
 	\hline
-	\end{tabular}
+	\end{tabular}                
 	\label{}
 \end{table*}
 To improve the classifier efficiency, we convert the input signals into different domains of representation. Transforming signals into frequency domain allows us to capture the repetitive nature of the signals \cite{figo}. This repetition often correlates to the periodic nature of a specific activity such as the tail beat of the shark while swimming or movement of the head while feeding.  Among the most popularly used transformation techniques is the Fourier Transform, which allows one to represent the most important characteristics of a time-based signal such as its  DC and dominant frequency components in the frequency domain by decomposing an input signal into its constituent sinusoids, as shown in Figure 4  for the collective Feeding data. In addition to the FFT, other frequency-based representations have been used such as Discrete Cosine Transform (DCT) which in contrast, decomposes a given signal into its constituent cosine waves. DCT returns an ordered sequence of coefficients such that the most significant information is concentrated at the lower indices of the sequence as can be seen from Figure 5.  This means that higher DCT coefficients can be discarded without losing information, which makes DCT suitable for data compression \cite{sani}.
@@ -157,7 +157,7 @@ The classifier runs through the training dataset and computes the distance betwe
 \begin{equation}
 P(i|x) = \frac{k_i}{k}
 \end{equation}
-Here $k_i$ is the number of nearest neighbors belonging to class $i$ and $k$ is the total number of nearest neighbours. In our study, in order to determine the optimum value of $k$ we ran multiple iterations of the program with different distance metrics and values of $k$. It was observed that as we increased the value of $k$ the accuracy of Resting and Swimming behaviors also increased but that of Feeding and Non-Directed Motion decreased. This might be attributed to the fact that Swimming and Resting classes have the most training samples and as the value of $k$ is increased, the locality of the input query is destroyed and the algorithm starts to look at samples that are not neighbors.  We were able to get the best accuracy of Feeding and Non-Directed Motion at $k$ = 15 with the city block distance metric while limiting the loss of classification  accuracy for Resting and Swimming classes.
+Here $k_i$ is the number of nearest neighbors belonging to class $i$ and $k$ is the total number of nearest neighbors. In our study, in order to determine the optimum value of $k$ we ran multiple iterations of the program with different distance metrics and values of $k$. It was observed that as we increased the value of $k$ the accuracy of Resting and Swimming behaviors also increased but that of Feeding and Non-Directed Motion decreased. This might be attributed to the fact that Swimming and Resting classes have the most training samples and as the value of $k$ is increased, the locality of the input query is destroyed and the algorithm starts to look at samples that are not neighbors.  We were able to get the best accuracy of Feeding and Non-Directed Motion at $k$ = 15 with the city block distance metric while limiting the loss of classification  accuracy for Resting and Swimming classes.
 
 \begin{table*}[h]
 	\centering
