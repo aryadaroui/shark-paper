@@ -208,15 +208,14 @@ The algorithm classifies the new data sample by minimizing the expected cost giv
 where $y$ is the predicted classification, $n$ is the number of classes, $P(i|x)$ is the conditional probability of class $i$ for observation $x$ and $C(i|j)$ is the user defined Cost Matrix.
 
 In our study, we developed the cost matrix by trial and error method using the time domain data. We ran multiple iterations of the program and updated the elements of the cost matrix in increments of 0.25 until we were able to strike a balance between accuracies for all the behavior classes. The final cost matrix developed is shown below:
-
-$$
-C(i|j) = \begin{bmatrix}
-	0 & 9.5 & 2 & 6 \\
-	2 & 0 & 3.5 & 4 \\
-	1.25 & 5 & 0 & 1.5 \\
-	2.25 & 3 & 1.5 & 0
-\end{bmatrix}
-$$
+\begin{equation}
+	C(i|j) = \begin{bmatrix}
+		0 & 9.5 & 2 & 6 \\
+		2 & 0 & 3.5 & 4 \\
+		1.25 & 5 & 0 & 1.5 \\
+		2.25 & 3 & 1.5 & 0
+	\end{bmatrix}
+\end{equation}
  We use the same Cost Matrix while comparing different pre-processing techniques to keep the comparison consistent. In the next section we compare the effect of the various pre-processing techniques discussed in Section II on the performance of the classifier with and without the cost matrix.
  
 \section{Results}
