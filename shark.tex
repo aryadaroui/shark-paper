@@ -27,7 +27,7 @@
 }
 
 \author{
-	\IEEEauthorblockN{Sainesh Karan\IEEEauthorrefmark{1}, Emily N Meese\IEEEauthorrefmark{2}, Yu Yang\IEEEauthorrefmark{3}, Hen-Guel Yeh\IEEEauthorrefmark{1}, Christopher G Lowe\IEEEauthorrefmark{2}, Wenlu Zhang\IEEEauthorrefmark{4}}
+	\IEEEauthorblockN{Sainesh Karan\IEEEauthorrefmark{1}, Emily N Meese\IEEEauthorrefmark{2}, Yu Yang\IEEEauthorrefmark{3}, Hen-Geul Yeh\IEEEauthorrefmark{1}, Christopher G Lowe\IEEEauthorrefmark{2}, Wenlu Zhang\IEEEauthorrefmark{4}}
 	\IEEEauthorblockA{\IEEEauthorrefmark{1}Dept. of Electrical Engineering, California State University, Long Beach, CA - 90840}
 	\IEEEauthorblockA{\IEEEauthorrefmark{2}Dept. of Biological Sciences, California State University, Long Beach, CA - 90840}
 	\IEEEauthorblockA{\IEEEauthorrefmark{3}Dept. of Chemical Engineering, California State University, Long Beach, CA - 90840}
@@ -39,7 +39,7 @@
 % {\footnotesize \textsuperscript{*}Note: Sub-titles are not captured in Xplore and should not be used}
 
 \begin{abstract}
-In this paper, we aim to ascertain the behavior of California horn sharks \textit{(Heterodontus francisci)} based on accelerometer data using a machine learning algorithm called Nearest Neighbors. We use digital signal processing techniques such as Fast Fourier Transform (FFT) and Discrete Cosine Transform (DCT) to represent the accelerometer signal in the frequency domain which reduces the data size required for training the classifier, the computation time and the memory resources needed, in addition to improving model accuracy. The shark behavior is classified into four classes namely Resting, Swimming, Feeding and Non-Directed Motion. We compare different combinations of time and frequency domain data on the performance of the algorithm. It is shown that the transform domain data considerably improved the accuracy of the classifier.
+In this paper, we aim to ascertain the behavior of California horn sharks \textit{(Heterodontus francisci)} based on accelerometer data using a machine learning algorithm called K-Nearest Neighbors. We use digital signal processing techniques such as Fast Fourier Transform (FFT) and Discrete Cosine Transform (DCT) to represent the accelerometer signal in the frequency domain which reduces the data size required for training the classifier, the computation time and the memory resources needed, in addition to improving model accuracy. The shark behavior is classified into four classes namely Resting, Swimming, Feeding and Non-Directed Motion. We compare different combinations of time and frequency domain data on the performance of the algorithm. It is shown that the transform domain data considerably improved the accuracy of the classifier.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -188,7 +188,7 @@ Here $k_i$ is the number of nearest neighbors belonging to class $i$ and $k$ is 
 	Time domain & 49.6	&66.7&	21.0&	51.0&	56.39\\
      FFT & 54.3&	72.3&	39.8&	31.1&	59.66\\
      DCT & 76.8&	48.5&	31.9&	8.2&	53.74\\
-   FFT + DCT & 77.6&	57.6&	46.&	13.6&	59.69\\
+   FFT + DCT & 77.6&	57.6&	46&	13.6&	59.69\\
 	Time Domain + FFT & 50.5&	66.3&	19.9&	55.2&	56.89\\
 	Time Domain + DCT & 51.8&	66.0&	21.1&	56.7&	57.48\\
 	Time Domain + FFT + DCT & 53.3&	65.2&	21.1&	56.3&	57.57\\
